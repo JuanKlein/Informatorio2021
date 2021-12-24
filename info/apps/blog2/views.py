@@ -3,13 +3,31 @@ from django.http import HttpResponse
 from django.views.generic.list import ListView
 from .models import Post
 
-class ListarPosts(ListView):
-    model=Post
-    template_name = "postsList.html"
-    context_object_name = "noticias"
-    def get_queryset(self):
-        noticias = Post.objects.all().order_by('-fecha_creacion')
-        return noticias
+
+def home(request):
+    return render(request, 'blog2/home.html')
+
+def posts(request):
+    return render(request, 'blog2/posts.html')
+
+def comentarios(request):
+    return render(request, 'blog2/comentarios.html')
+
+def contacto(request):
+    return render(request, 'blog2/contacto.html')
+    
+
+
+
+
+
+# class ListarPosts(ListView):
+#     model=Post
+#     template_name = "postsList.html"
+#     context_object_name = "noticias"
+#     def get_queryset(self):
+#         noticias = Post.objects.all().order_by('-fecha_creacion')
+#         return noticias
 
 
 '''class PostDetailView(HitCountDetailView):
